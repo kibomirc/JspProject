@@ -19,3 +19,35 @@
 %>
 
 <%
+	String nickname = request.getParameter("nickname");
+	if(nickname == null || nickname.trim().equals("")) nickname = "Anonimo";
+	String messaggio = request.getParameter("messaggio");
+	String aggiorna = request.getParameter("aggiorna");
+	if(messaggio != null && aggiorna == null) {
+		inserisciMessaggio("<b>" + nickname + "</b> - " + messaggio + "<br>" );	
+	}
+%>
+<html>
+<head>
+<title> CHAT </title>
+<body onload = "document.f.messaggio.focus()">
+<form name = "f" method="post">
+Nickname:
+<input type ="text"
+		name="nickname"
+		size="10"
+		value = "<%= nickname %>">
+Messaggio:
+<input type = "text"
+		name="messaggio"
+		size = "30">
+<input type="submit"
+	value="Invia">
+<input type="submit"
+	name="aggiorna"
+	value="Aggiorna">
+</form>
+<hr>
+<% stampaMessaggio(out); %>
+</body>
+</html>

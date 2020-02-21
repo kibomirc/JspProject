@@ -3,6 +3,7 @@ package ripasso.esercizi;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -31,5 +32,15 @@ public class HelloController {
 	@GetMapping("/Es5")
 	public String getEsempio5() {
 		return "Esempio5";
+	}
+	
+	@GetMapping("/Chat")
+	public String getChatGet() {
+		return "chat";
+	}
+	
+	@PostMapping("/Chat")
+	public String getChatPost() {
+		return "chat";
 	}
 }
